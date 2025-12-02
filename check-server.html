@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Server Check - SubTrack</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #1a1a1a;
+      color: #fff;
+    }
+    .status {
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+    }
+    .success { background: #22c55e; }
+    .error { background: #ef4444; }
+    .info { background: #3b82f6; }
+    button {
+      padding: 10px 20px;
+      background: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px;
+    }
+    button:hover { background: #2563eb; }
+  </style>
+</head>
+<body>
+  <h1>SubTrack Server Connection Check</h1>
+  
+  <div id="status"></div>
+  
+  <button onclick="checkServer()">Check Server</button>
+  <button onclick="checkMongoDB()">Check MongoDB (via API)</button>
+  
+  <div id="results"></div>
+
+  <script>
+    async function checkServer() {
+      const statusDiv = document.getElementById('status');
+      const resultsDiv = document.getElementById('results');
+      
+      statusDiv.innerHTML = '<div class="status info">Checking server connection...</div>';
+      resultsDiv.innerHTML = '';
+      
+      try {
+        const response = await fetch('http://localhost:3000/api/auth/verify', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        
+        if (response.ok) {
+          statusDiv.innerHTML = '<div class="status success">✅ Server is running and responding!</div>';
+          const data = await response.json().catch(() => ({}));
+          resultsDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+        } else {
+          statusDiv.innerHTML = `<div class="status error">❌ Server responded with error: ${response.status}</div>`;
+        }
+      } catch (error) {
+        statusDiv.innerHTML = `<div class="status error">❌ Failed to connect to server: ${error.message}</div>`;
+        resultsDiv.innerHTML = `
+          <h3>Troubleshooting Steps:</h3>
+          <ol>
+            <li>Make sure the server is running: <code>npm start</code></li>
+            <li>Check if port 3000 is available</li>
+            <li>Verify MongoDB is running</li>
+            <li>Check the server console for errors</li>
+            <li>Make sure you're accessing from http://localhost:3000</li>
+          </ol>
+        `;
+      }
+    }
+    
+    async function checkMongoDB() {
+      const statusDiv = document.getElementById('status');
+      const resultsDiv = document.getElementById('results');
+      
+      statusDiv.innerHTML = '<div class="status info">Checking MongoDB connection (via test endpoint)...</div>';
+      
+      try {
+        // Try to register a test user to see if MongoDB is working
+        const response = await fetch('http://localhost:3000/api/auth/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            username: 'test_' + Date.now(),
+            email: 'test' + Date.now() + '@test.com',
+            password: 'test123456'
+          })
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok || (response.status === 400 && data.error && data.error.includes('already'))) {
+          statusDiv.innerHTML = '<div class="status success">✅ MongoDB connection appears to be working!</div>';
+        } else {
+          statusDiv.innerHTML = `<div class="status error">❌ MongoDB issue: ${data.error || 'Unknown error'}</div>`;
+        }
+        
+        resultsDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+      } catch (error) {
+        statusDiv.innerHTML = `<div class="status error">❌ Error checking MongoDB: ${error.message}</div>`;
+      }
+    }
+    
+    // Auto-check on load
+    window.addEventListener('load', () => {
+      setTimeout(checkServer, 500);
+    });
+  </script>
+</body>
+</html>
+

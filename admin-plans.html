@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SubTrack – Premium Subscribers Dashboard</title>
+  <link rel="icon" type="image/png" href="images/growth_png.png">
+  <link rel="stylesheet" href="website.css">
+  <link rel="stylesheet" href="admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body class="dark-theme">
+  <header class="site-header">
+    <div class="container">
+      <a class="site-name" href="overview.html">
+        <img src="images/growth_png.png" class="site-logo" />
+        <span>SubTrack</span>
+      </a>
+      <nav>
+        <ul class="nav-list">
+          <li><a class="nav-btn" href="overview.html">Overview</a></li>
+          <li><a class="nav-btn" href="dashboard.html">Manage Subs</a></li>
+          <li><a class="nav-btn" href="profile.html">Profile</a></li>
+          <li><a class="nav-btn active" href="admin-plans.html">Premium Subscribers</a></li>
+          <li><button class="nav-btn logout-btn" id="logoutBtn">Logout</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container admin-main">
+    <h1 class="admin-title">Premium Subscribers Dashboard</h1>
+    <p style="color: rgba(255,255,255,0.7); margin-bottom: 2rem; font-size: 1.1rem;">
+      View all users subscribed to SubTrack premium plans and track monthly & yearly revenue
+    </p>
+    
+    <div id="loadingMessage" class="loading-message">Loading premium subscriber data...</div>
+    <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+    <!-- Revenue Statistics Cards -->
+    <section class="stats-grid" id="revenueStatsSection" style="display: none;">
+      <div class="stat-card highlight-card" style="border: 2px solid rgba(239, 68, 68, 0.4);">
+        <h3>Monthly Revenue</h3>
+        <p class="stat-value" id="monthlyRevenue" style="color: #fca5a5; font-size: 2.5rem;">$0.00</p>
+        <small>From all premium plans</small>
+      </div>
+      <div class="stat-card highlight-card" style="border: 2px solid rgba(37, 99, 235, 0.4);">
+        <h3>Yearly Revenue</h3>
+        <p class="stat-value" id="yearlyRevenue" style="color: #60a5fa; font-size: 2.5rem;">$0.00</p>
+        <small>Estimated annual revenue</small>
+      </div>
+      <div class="stat-card">
+        <h3>Total Premium Subscribers</h3>
+        <p class="stat-value" id="totalPremiumSubscribers">0</p>
+        <small id="premiumBreakdown">0 on $5 plan, 0 on $10 plan</small>
+      </div>
+      <div class="stat-card">
+        <h3>Free Plan Users</h3>
+        <p class="stat-value" id="freePlanCount">0</p>
+        <small>Not generating revenue</small>
+      </div>
+    </section>
+
+    <!-- Plan Statistics Cards -->
+    <section class="stats-grid" id="planStatsSection" style="display: none;">
+      <div class="stat-card" style="border: 2px solid rgba(239, 68, 68, 0.4);">
+        <h3>Standard Plan ($5/month)</h3>
+        <p class="stat-value" id="standardPlanCount" style="color: #fca5a5;">0</p>
+        <small id="standardPlanRevenue">$0.00/month revenue</small>
+      </div>
+      <div class="stat-card" style="border: 2px solid rgba(37, 99, 235, 0.4);">
+        <h3>Team Plan ($10/month)</h3>
+        <p class="stat-value" id="teamPlanCount" style="color: #60a5fa;">0</p>
+        <small id="teamPlanRevenue">$0.00/month revenue</small>
+      </div>
+    </section>
+
+    <!-- Charts Section -->
+    <section class="charts-section" id="chartsSection" style="display: none;">
+      <div class="chart-container">
+        <h2>Premium Plan Distribution</h2>
+        <canvas id="planChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <h2>Monthly Revenue by Plan</h2>
+        <canvas id="revenueChart"></canvas>
+      </div>
+    </section>
+
+    <!-- Premium Subscribers List -->
+    <section class="plans-details" id="plansDetails" style="display: none;">
+      <h2 style="color: #fff; font-size: 1.8rem; margin-bottom: 1.5rem;">Premium Subscribers</h2>
+      
+      <div class="plan-detail-card highlight-plan" style="border: 2px solid rgba(239, 68, 68, 0.4);">
+        <h2>Standard Plan Subscribers ($5/month)</h2>
+        <p style="color: rgba(255,255,255,0.6); margin-bottom: 1rem;">
+          <strong id="standardSubscriberCount">0</strong> subscribers generating 
+          <strong id="standardMonthlyTotal">$0.00</strong>/month
+        </p>
+        <div class="users-list" id="standardPlanUsers">
+          <p style="color: rgba(255,255,255,0.5);">Loading...</p>
+        </div>
+      </div>
+      
+      <div class="plan-detail-card" style="border: 2px solid rgba(37, 99, 235, 0.4);">
+        <h2>Team Plan Subscribers ($10/month)</h2>
+        <p style="color: rgba(255,255,255,0.6); margin-bottom: 1rem;">
+          <strong id="teamSubscriberCount">0</strong> subscribers generating 
+          <strong id="teamMonthlyTotal">$0.00</strong>/month
+        </p>
+        <div class="users-list" id="teamPlanUsers">
+          <p style="color: rgba(255,255,255,0.5);">Loading...</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="admin-plans.js"></script>
+</body>
+</html>
+

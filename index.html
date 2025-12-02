@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="website.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SubTrack</title>
+  <link rel="icon" type="image/png" href="images/growth_png.png">
+  <link rel="stylesheet" href="website.css" />
+  <meta name="description" content="SubTrack helps you track online subscriptions, see monthly spend, and get renewal reminders." />
+</head>
+
+<body class="dark-theme">
+
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="website.html" class="home-refresh">
+  <img src="images/growth_png.png" alt="SubTrack Logo" class="site-logo" />
+  <span>SubTrack</span>
+</a>
+
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="aboutus.html" class="nav-btn">About Us</a></li>
+          <li><a href="support.html" class="nav-btn">Customer Service</a></li>
+          <li><a href="profile.html" class="nav-btn">Profile</a></li>
+        </ul>
+
+      </nav>
+    </div>
+
+    <!-- HERO SECTION -->
+    <div class="hero">
+      <h1>One home for all your subscriptions.</h1>
+      <p class="tagline">Track spend, avoid surprise renewals, and save money with smart alerts.</p>
+    </div>
+
+    <!-- SUPPORTED PLATFORMS -->
+    <section class="platforms" aria-labelledby="platforms-title">
+      <h2 id="platforms-title" class="visually-hidden">Supported platforms</h2>
+      <ul class="logo-row">
+        <li><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix logo" /></li>
+        <li><img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify logo" /></li>
+        <li><img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube logo" /></li>
+        <li><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon logo" /></li>
+        <li><img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="ChatGPT logo" /></li>
+      </ul>
+    </section>
+  </header>
+
+  <!-- MAIN SECTION -->
+  <main id="main" class="site-main">
+    <section class="intro" aria-labelledby="intro-title">
+      <div class="container grid-2">
+        <article>
+          <h2 id="intro-title">See where your money goes</h2>
+          <p>
+            SubTrack gathers all your subscriptions into one clean dashboard.
+            View totals by month/year, category in easy-to-read charts, as well as setting renewal reminders so you won't forget any subscription, especially the ones you rarely use.
+          </p>
+          <ul>
+            <li>Quick manual entry</li>
+            <li>Renewal reminders</li>
+            <li>Multi-currency</li>
+          </ul>
+        </article>
+
+        <div class="logo-iphone-container">
+          <div class="logo-with-stores">
+            <img src="images/logo2_png.png" alt="SubTrack logo" class="subtrak-logo" />
+            <div class="store-buttons">
+
+            <a href="https://www.apple.com/app-store/" target="_blank">
+              <img src="images/appstore.svg" alt="Download on App Store" class="store-btn">
+            </a>
+
+            <a href="https://play.google.com/store" target="_blank">
+              <img src="images/Google_Play-Badge-Logo.wine.svg" alt="Get it on Google Play" class="store-btn">
+            </a>
+
+          </div>
+
+          </div>
+          <img src="images/iphone_png.png" alt="iPhone SubTrack App Preview" class="iphone-mockup" />
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta" aria-labelledby="cta-title">
+      <div class="container cta-actions">
+        <a href="login2.html" class="btn btn-primary">Join now</a>
+        <a href="learnmore.html" class="btn btn-secondary">Learn more</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>SubTrack</h3>
+        <p>Track and manage all your subscriptions in one place.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="aboutus.html">About us</a></li>
+          <li><a href="learnmore.html">Plans & Pricing</a></li>
+          <li><a href="profile.html">Profile</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:support@subtrack.com">support@subtrack.com</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <small>© <span id="year"></span> SubTrack. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
+
+
+
+
+

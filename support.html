@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Service – SubTrack</title>
+  <link rel="icon" type="image/png" href="images/growth_png.png">
+  <link rel="stylesheet" href="support.css" />
+  <link rel="icon" type="image/png" href="images/growth_png.png" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container">
+      <a class="site-name" href="website.html">
+        <img src="images/growth_png.png" alt="SubTrack Logo" class="site-logo" />
+        <span>SubTrack</span>
+      </a>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="website.html" class="nav-btn">Home</a></li>
+          <li><a href="aboutus.html" class="nav-btn">About Us</a></li>
+          <li><a href="learnmore.html" class="nav-btn">Plans</a></li>
+          <li><a href="profile.html" class="nav-btn">Profile</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>We’re Here to Help</h1>
+      <p>Our support team is available 24/7 to help you with any questions, issues, or feedback about SubTrack.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT OPTIONS -->
+  <section class="contact-options">
+    <div class="container">
+      <div class="option-card">
+        <img src="images/email_logo_png.png" alt="Email Support">
+        <h3>Email Support</h3>
+        <p>Need help or have a question? Reach us anytime via email.</p>
+        <a href="mailto:support@subtrack.com" class="option-btn">Send Email</a>
+      </div>
+
+      <div class="option-card">
+        <img src="images/chat_logo_png.png" alt="Live Chat">
+        <h3>Live Chat</h3>
+        <p>Connect with one of our support agents instantly and get real-time assistance.</p>
+        <button class="option-btn" id="openChatBtn">Start Chat</button>
+      </div>
+
+      <div class="option-card">
+        <img src="images/phone_logo_png.png" alt="Phone Support">
+        <h3>Phone Support</h3>
+        <p>Speak directly with our support team for urgent or complex issues.</p>
+        <a href="tel:+96170000000" class="option-btn">Call Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUPPORT FORM -->
+  <section class="support-form">
+    <div class="container">
+      <h2>Submit a Request</h2>
+      <p>If you’re facing an issue or have a feature suggestion, please fill out the form below. We’ll get back to you shortly.</p>
+
+      <form>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Enter your full name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" placeholder="Issue subject" required>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="6" placeholder="Describe your issue or question..." required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Request</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="footer-bottom">
+      <small>© <span id="year"></span> SubTrack. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <!-- CHAT MODAL -->
+<div id="chatModal" class="chat-modal">
+  <div class="chat-box">
+    <div class="chat-header">
+      <span>💬 Live Chat Support</span>
+      <button id="closeChatBtn" class="close-chat">×</button>
+    </div>
+    <div class="chat-body">
+      <div class="message bot">Hello 👋! How can we help you today?</div>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="chatInput" placeholder="Type your message..." />
+      <button id="sendBtn">Send</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Modal control
+  const openChat = document.getElementById('openChatBtn');
+  const chatModal = document.getElementById('chatModal');
+  const closeChat = document.getElementById('closeChatBtn');
+  const sendBtn = document.getElementById('sendBtn');
+  const chatBody = document.querySelector('.chat-body');
+  const chatInput = document.getElementById('chatInput');
+
+  openChat.addEventListener('click', () => chatModal.classList.add('active'));
+  closeChat.addEventListener('click', () => chatModal.classList.remove('active'));
+
+  // Simple simulated chat
+  sendBtn.addEventListener('click', () => {
+    const text = chatInput.value.trim();
+    if (!text) return;
+    const userMsg = document.createElement('div');
+    userMsg.className = 'message user';
+    userMsg.textContent = text;
+    chatBody.appendChild(userMsg);
+    chatInput.value = '';
+    setTimeout(() => {
+      const botMsg = document.createElement('div');
+      botMsg.className = 'message bot';
+      botMsg.textContent = 'Thanks for reaching out! Our team will get back to you shortly.';
+      chatBody.appendChild(botMsg);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }, 700);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  });
+</script>
+
+</body>
+</html>

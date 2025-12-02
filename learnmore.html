@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SubTrack – Plans & Pricing</title>
+  <link rel="icon" type="image/png" href="images/growth_png.png">
+  
+  <link rel="stylesheet" href="website.css" />
+
+  <!-- Page-specific styles LAST (scoped to .learn-page so nothing else breaks) -->
+  <link rel="stylesheet" href="learmore.css" />
+
+  <link rel="icon" type="image/png" href="images/growth_png.png" />
+</head>
+
+<body class="dark-theme learn-page">
+  <!-- HEADER (uses the SAME nav/button structure as index) -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a class="site-name" href="website.html" aria-label="Go to SubTrack home">
+        <img src="images/growth_png.png" alt="SubTrack logo" class="site-logo" />
+        <span>SubTrack</span>
+      </a>
+
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="website.html" class="nav-btn">Home</a></li>
+          <li><a href="aboutus.html" class="nav-btn">About Us</a></li>
+          <li><a href="profile.html" class="nav-btn">Profile</a></li>
+          <li><a href="learnmore.html" class="nav-btn active">Plans</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="plans-container">
+    <h1 class="plans-title">Choose Your Plan</h1>
+    <p class="plans-subtitle">Simple pricing that grows with you.</p>
+
+    <section class="plans-grid container">
+
+      <!-- FREE -->
+      <article class="plan-card">
+        <h2>Free</h2>
+        <p class="price">$0 / month</p>
+        <ul class="features">
+          <li>Up to 10 subscriptions</li>
+          <li>1 user</li>
+          <li>Basic support</li>
+        </ul>
+        <a class="plan-btn" href="login2.html">Get Started</a>
+      </article>
+
+      <!-- STANDARD -->
+      <article class="plan-card plan-card--highlight">
+        <h2>Standard</h2>
+        <p class="price">$5 / month</p>
+        <ul class="features">
+          <li>Unlimited subscriptions</li>
+          <li>1 user</li>
+          <li>Email support</li>
+        </ul>
+        <a class="plan-btn" href="login2.html">Subscribe</a>
+      </article>
+
+      <!-- TEAM -->
+      <article class="plan-card">
+        <h2>Team</h2>
+        <p class="price">$10 / month</p>
+        <ul class="features">
+          <li>Unlimited subscriptions</li>
+          <li>Multiple users</li>
+          <li>Priority support</li>
+        </ul>
+        <a class="plan-btn" href="login2.html">Subscribe</a>
+      </article>
+
+    </section>
+  </main>
+
+  <!-- FOOTER (links must be gray → blue on hover) -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>SubTrack</h3>
+        <p>Track and manage all your subscriptions in one place.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="learnmore.html">Plans</a></li>
+          <li><a href="profile.html">Profile</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:support@subtrack.com">support@subtrack.com</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <small>© <span id="year"></span> SubTrack. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
+

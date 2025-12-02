@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SubTrack – Overview</title>
+  <link rel="icon" type="image/png" href="images/growth_png.png">
+  <link rel="stylesheet" href="website.css" />
+  <link rel="stylesheet" href="overview.css" />
+</head>
+<body class="dark-theme">
+  <header class="site-header">
+    <div class="container">
+      <a class="site-name" href="website.html">
+        <img src="images/growth_png.png" alt="SubTrack Logo" class="site-logo" />
+        <span>SubTrack</span>
+      </a>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="overview.html" class="nav-btn active">Overview</a></li>
+          <li><a href="dashboard.html" class="nav-btn">Manage Subs</a></li>
+          <li><a href="profile.html" class="nav-btn">Profile</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container overview">
+    <h1 class="welcome">Welcome <span id="username">User</span></h1>
+
+    <div class="overview-controls">
+      <div class="mode-selector">
+        <label for="viewMode">View:</label>
+        <select id="viewMode">
+          <option value="monthly">Monthly</option>
+          <option value="yearly">Yearly</option>
+        </select>
+      </div>
+      <div class="year-selector" id="yearSelector" style="display: none;">
+        <label for="selectedYear">Year:</label>
+        <input type="number" id="selectedYear" min="2000" max="2100" />
+        <button id="applyYearBtn" class="year-apply-btn">Apply</button>
+      </div>
+    </div>
+
+    <div class="find-wrap">
+      <input id="findInput" type="text" placeholder="Find a sub" aria-label="Find a subscription" />
+      <ul id="findResults" class="find-results"></ul>
+    </div>
+
+    <section class="stats">
+      <div class="stat-circle">
+        <div class="stat-value" id="monthlyTotal">$0.00</div>
+        <div class="stat-label">monthly spendings</div>
+      </div>
+      <div class="stat-circle">
+        <div class="stat-value" id="yearlyTotal">$0.00</div>
+        <div class="stat-label">yearly subs spending</div>
+      </div>
+      <div class="stat-circle">
+        <div class="stat-value" id="subsCount">0</div>
+        <div class="stat-label">number of subs</div>
+      </div>
+    </section>
+
+    <section class="lower">
+      <div class="category-card">
+        <h2>Category</h2>
+        <div class="donut-wrap">
+          <svg viewBox="0 0 42 42" class="donut" aria-label="Category breakdown">
+            <circle class="donut-ring" cx="21" cy="21" r="15.9155"></circle>
+            <g id="donutSegments"></g>
+          </svg>
+          <ul id="legend" class="legend"></ul>
+        </div>
+      </div>
+
+      <div class="top3-card">
+        <h2>Top 3 Subscriptions</h2>
+        <ul id="top3" class="top3-list"></ul>
+      </div>
+    </section>
+
+    <div class="cta-row">
+      <a class="cta" href="dashboard.html">Manage Subs</a>
+      <a class="cta outline" href="calendar.html">Open Calendar</a>
+    </div>
+      <div class="cta-row">
+      <a class="cta" href="detailed.html" id="detailedSubsBtn">Detailed Subs</a>
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-bottom">
+      <small>© <span id="year"></span> SubTrack. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="js/navigation.js"></script>
+  <script src="overview.js"></script>
+</body>
+</html>

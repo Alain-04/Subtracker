@@ -1,0 +1,196 @@
+/* ===== GLOBAL PAGE ===== */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("images/login_page.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: "Inter", sans-serif;
+}
+
+/* ===== CENTRAL BOX ===== */
+.login-box {
+  display: flex;
+  width: 900px;
+  height: 550px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+/* ===== LEFT SIDE ===== */
+.left-panel {
+  flex: 1;
+  background: url("images/background.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+/* ===== TEXT INSIDE LEFT PANEL ===== */
+.welcome-text {
+  color: white;
+  text-align: left;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* subtle dark overlay for readability */
+}
+
+/* ===== BRAND SECTION (logo + text) ===== */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.brand-logo {
+  height: 50px;
+  width: auto;
+}
+
+.brand-name {
+  font-size: 2.2rem;
+  color: white;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+
+.welcome-text h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.welcome-text p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  max-width: 400px;
+  color: #f0f0f0;
+}
+
+
+/* ===== RIGHT SIDE ===== */
+.right-panel {
+  flex: 1;
+  background: url("images/white_bg.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+/* ===== SIGN UP FORM ===== */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.signup-form h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #001f3f;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+/* ===== INPUT BOXES ===== */
+.signup-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 75%;
+}
+
+.signup-form input {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #001f3f;
+  padding: 0.8rem 0.5rem;
+  font-size: 1rem;
+  color: #001f3f;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.signup-form input::placeholder {
+  color: #555;
+}
+
+.signup-form input:focus {
+  border-color: #007bff;
+}
+
+/* ===== CONTINUE BUTTON ===== */
+.continue-btn {
+  margin-top: 1.5rem;
+  background: linear-gradient(90deg, #001f3f, #0047ab);
+  color: white;
+  border: none;
+  padding: 0.9rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.continue-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== SIGN-IN LINK BELOW BUTTON ===== */
+.signin-link {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.signin-link p {
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.signin-btn {
+  color: #0047ab;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.signin-btn:hover {
+  color: #001f3f;
+  text-decoration: underline;
+}
+
+/* Admin link button - styled as part of the sentence */
+.admin-link-btn {
+  color: #ef4444;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.2rem 0.5rem;
+  background: rgba(239, 68, 68, 0.15);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.admin-link-btn:hover {
+  color: #dc2626;
+  background: rgba(239, 68, 68, 0.25);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+

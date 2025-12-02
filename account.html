@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Account Settings – SubTrack</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/growth_png.png" />
+
+  <!-- Global website style -->
+  <link rel="stylesheet" href="website.css" />
+
+  <!-- Account page style -->
+  <link rel="stylesheet" href="account.css" />
+
+  <!-- Scripts -->
+  <script defer src="js/api.js"></script>
+  <script defer src="account.js"></script>
+</head>
+
+<body class="dark-theme account-page">
+
+  <!-- HEADER -->
+  <header class="account-header">
+  <a href="profile.html" class="account-header-left">
+    <img src="images/growth_png.png" class="account-logo" alt="SubTrack Logo" />
+    <span class="account-title">SubTrack</span>
+  </a>
+
+  <div class="account-header-right">
+    <a href="profile.html" class="btn-header back-btn">Back to Profile</a>
+    <button id="logoutBtn" class="btn-header logout-btn">Logout</button>
+  </div>
+</header>
+
+
+  <!-- MAIN CONTENT -->
+  <main class="account-container container">
+
+    <h1 class="page-title">Account Settings</h1>
+    <p class="page-subtitle">Manage your personal information and password.</p>
+
+    <!-- ACCOUNT DETAILS -->
+    <section class="card account-card">
+      <h2 class="section-title">Account Details</h2>
+
+      <div class="detail-grid">
+        <div class="detail-box">
+          <label>Username</label>
+          <p id="acc-username">Loading...</p>
+        </div>
+
+        <div class="detail-box">
+          <label>Email</label>
+          <p id="acc-email">Loading...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PASSWORD CHANGE -->
+    <section class="card account-card">
+      <h2 class="section-title">Change Password</h2>
+
+      <div class="password-form">
+        <input type="password" id="currentPass" placeholder="Current Password">
+        <input type="password" id="newPass" placeholder="New Password">
+        <input type="password" id="confirmNewPass" placeholder="Confirm New Password">
+
+        <button id="updatePassBtn" class="btn-primary full-width">
+          Update Password
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
+
+
+

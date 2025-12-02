@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SubTrack – Detailed Chart</title>
+<link rel="icon" type="image/png" href="images/growth_png.png">
+<link rel="stylesheet" href="website.css">
+<link rel="stylesheet" href="detailed.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="dark-theme">
+
+<header class="site-header">
+  <div class="container">
+    <a class="site-name" href="overview.html">
+      <img src="images/growth_png.png" class="site-logo" />
+      <span>SubTrack</span>
+    </a>
+    <nav>
+      <ul class="nav-list">
+        <li><a class="nav-btn" href="overview.html">Overview</a></li>
+        <li><a class="nav-btn" href="dashboard.html">Manage Subs</a></li>
+        <li><a class="nav-btn" href="profile.html">Profile</a></li>
+      </ul>
+    </nav>
+    <script src="js/navigation.js"></script>
+  </div>
+</header>
+
+<main class="container detailed-shell">
+
+  <h2 class="title">SPENDING SHEET</h2>
+
+  <div class="top-row">
+    <div class="mode-group">
+      <select id="modeSelect">
+        <option value="monthly">Monthly</option>
+        <option value="yearly">Yearly</option>
+      </select>
+    </div>
+
+    <div class="year-selector-monthly" id="yearSelectorMonthly" style="display: none;">
+      <label for="selectedYearMonthly">Year:</label>
+      <input type="number" id="selectedYearMonthly" min="2000" max="2100" />
+      <button id="applyYearMonthlyBtn" class="compare-btn small-btn">Apply</button>
+    </div>
+
+    <div class="year-range" id="yearRange" style="display: none;">
+      <label for="fromYear">From</label>
+      <input type="number" id="fromYear" />
+      <label for="toYear">To</label>
+      <input type="number" id="toYear" />
+      <button id="applyYearBtn" class="compare-btn small-btn">Apply</button>
+    </div>
+  </div>
+
+  <div class="chart-box">
+    <canvas id="spendingChart"></canvas>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <h3>Total Monthly Spending</h3>
+      <div class="stat-value" id="totalMonthly">$0.00</div>
+    </div>
+    <div class="stat-card">
+      <h3>Total Yearly Spending</h3>
+      <div class="stat-value" id="totalYearly">$0.00</div>
+    </div>
+    <div class="stat-card">
+      <h3>Active Subscriptions</h3>
+      <div class="stat-value" id="activeCount">0</div>
+    </div>
+    <div class="stat-card">
+      <h3>Average per Subscription</h3>
+      <div class="stat-value" id="averagePrice">$0.00</div>
+    </div>
+  </div>
+
+  <div class="details-section">
+    <h3>Category Breakdown</h3>
+    <div class="categories-box" id="categoriesBox"></div>
+  </div>
+
+  <div class="details-section">
+    <h3>Subscription Details</h3>
+    <div class="subscriptions-table" id="subscriptionsTable"></div>
+  </div>
+
+  <div class="details-section">
+    <h3>Top Expenses</h3>
+    <div class="top-expenses" id="topExpenses"></div>
+  </div>
+
+</main>
+
+<script src="detailed.js"></script>
+<script src="js/navigation.js"></script>
+</body>
+</html>

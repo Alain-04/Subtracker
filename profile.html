@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SubTrack – Profile</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/growth_png.png" />
+
+  <!-- Global + page styles -->
+  <link rel="stylesheet" href="website.css" />
+  <link rel="stylesheet" href="profile.css" />
+
+  <!-- Icons (optional, used for small icons/buttons) -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- Scripts (same structure as existing project) -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script defer src="js/navigation.js"></script>
+  <script defer src="js/api.js"></script>
+  <script defer src="profile.js"></script>
+</head>
+
+<body class="dark-theme profile-page">
+
+  <!-- ============ HEADER / NAVBAR ============ -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="website.html" class="brand-link" aria-label="Return to SubTrack home">
+        <img src="images/growth_png.png" alt="SubTrack logo" class="brand-logo" />
+        <span class="brand-text">SubTrack</span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a href="website.html" class="nav-btn">Home</a></li>
+          <li><a href="overview.html" class="nav-btn">Dashboard</a></li>
+          <li><a href="support.html" class="nav-btn">Support</a></li>
+          <li><a href="profile.html" class="nav-btn active">Profile</a></li>
+          <!-- navigation.js will handle login/logout items -->
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ MAIN PROFILE LAYOUT ============ -->
+  <main class="container profile-layout" aria-label="Profile">
+
+    <!-- LEFT: MAIN CARD -->
+    <section class="card profile-main" aria-labelledby="profile-heading">
+      <div class="profile-main-header">
+        <div class="avatar-block">
+          <img
+            id="profile-img"
+            src="images/profile_black.png"
+            alt="Profile picture"
+            class="avatar-img"
+          />
+
+          <div class="avatar-actions">
+            <button id="upload-picture-btn" class="btn-secondary">
+              <i class="fas fa-camera"></i>
+              Update picture
+            </button>
+            <button id="remove-picture-btn" class="btn-link danger">
+              Remove
+            </button>
+          </div>
+        </div>
+
+        <div class="identity-block">
+          <h1 id="username-display" class="profile-name">Loading...</h1>
+          <p id="email-display" class="profile-email">Loading...</p>
+
+          <div class="badges-row">
+            <span class="badge badge-soft">Active user</span>
+            <span class="badge badge-outline">SubTrack Member</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-main-body">
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">Username</span>
+            <span class="info-value" id="username-display-duplicate">Loading...</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Email</span>
+            <span class="info-value" id="email-display-duplicate">Loading...</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Active subscriptions</span>
+            <span class="info-value" id="subscriptions-display">0</span>
+          </div>
+        </div>
+
+        <div class="profile-note">
+          Manage your personal details, subscription overview and security settings
+          from this page. Changes here are reflected across your SubTrack experience.
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT: SIDEBAR CARDS -->
+    <aside class="profile-sidebar" aria-label="Profile quick settings">
+      <!-- Subscriptions summary -->
+      <section class="card side-card">
+        <h2 class="side-title">Subscription Overview</h2>
+        <p class="side-text">
+          You currently have
+          <span class="side-highlight" id="subscriptions-display-side">0</span>
+          subscriptions tracked in SubTrack.
+        </p>
+        <a href="overview.html" class="btn-primary full-width">
+          Go to Subscription Dashboard
+        </a>
+      </section>
+
+      <!-- Account settings -->
+      <section class="card side-card">
+        <h2 class="side-title">Account Settings</h2>
+        <p class="side-text">View your account details and update your password.</p>
+
+        <a href="account.html" class="btn-secondary full-width">
+          Account Details
+        </a>
+      </section>
+
+      <!-- Payment method -->
+      <section class="card side-card">
+        <h2 class="side-title">Payment Method</h2>
+        <p class="side-text">Add or update your payment information.</p>
+
+        <a href="payment.html" class="btn-primary full-width">
+          Manage Payment Method
+        </a>
+      </section>
+
+
+      <!-- Admin Panel (only visible to admins) -->
+      <section class="card side-card" id="admin-card" style="display: none; visibility: hidden; opacity: 0;">
+        <h2 class="side-title">Admin Panel</h2>
+        <p class="side-text">
+          View all users subscribed to SubTrack premium plans ($5, $10, etc.)
+        </p>
+        <a href="admin-plans.html" class="btn-primary full-width" style="background: rgba(239, 68, 68, 0.2); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.3);">
+          <i class="fas fa-shield-alt"></i> Premium Subscribers
+        </a>
+      </section>
+
+      <!-- Help / Support -->
+      <section class="card side-card">
+        <h2 class="side-title">Need help?</h2>
+        <p class="side-text">
+          Reach out to our support page to submit a ticket or read common FAQs.
+        </p>
+        <a href="support.html" class="btn-link full-width text-center">
+          Go to Support
+        </a>
+      </section>
+    </aside>
+  </main>
+
+  <!-- ============ PICTURE MODAL (UPLOAD / CAMERA) ============ -->
+  <div id="picture-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="picture-modal-title">
+    <div class="modal-content">
+      <h2 id="picture-modal-title">Update profile picture</h2>
+      <p class="modal-text">
+        Choose how you want to update your profile picture.
+      </p>
+
+      <div class="modal-actions">
+        <button id="from-device-btn" class="btn-primary">
+          <i class="fas fa-upload"></i>
+          Upload from device
+        </button>
+        <button id="take-pic-btn" class="btn-secondary">
+          <i class="fas fa-camera"></i>
+          Use camera
+        </button>
+      </div>
+
+      <button id="cancel-picture-btn" class="btn-link modal-cancel">
+        Cancel
+      </button>
+
+      <!-- Hidden file input that profile.js will use -->
+      <input
+        type="file"
+        id="file-input"
+        accept="image/*"
+        class="hidden"
+      />
+    </div>
+  </div>
+
+  <!-- ============ CAMERA MODAL ============ -->
+  <div id="camera-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="camera-modal-title">
+    <div class="modal-content modal-content--wide">
+      <h2 id="camera-modal-title">Take a picture</h2>
+
+      <div class="camera-wrapper">
+        <video id="camera-video" autoplay playsinline class="camera-video"></video>
+        <canvas id="camera-canvas" class="camera-canvas hidden"></canvas>
+      </div>
+
+      <div class="modal-actions">
+        <button id="capture-btn" class="btn-primary">
+          <i class="fas fa-check"></i>
+          Capture
+        </button>
+        <button id="cancel-camera-btn" class="btn-link modal-cancel">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SMALL SCRIPT TO MIRROR MAIN DATA INTO DUPLICATE FIELDS -->
+  <script>
+    // Mirror main username/email into the small info grid
+    document.addEventListener("DOMContentLoaded", () => {
+      const mainUsername = document.getElementById("username-display");
+      const mainEmail = document.getElementById("email-display");
+      const smallUsername = document.getElementById("username-display-duplicate");
+      const smallEmail = document.getElementById("email-display-duplicate");
+
+      const subsMain = document.getElementById("subscriptions-display");
+      const subsSide = document.getElementById("subscriptions-display-side");
+
+      const sync = () => {
+        if (mainUsername && smallUsername) smallUsername.textContent = mainUsername.textContent;
+        if (mainEmail && smallEmail) smallEmail.textContent = mainEmail.textContent;
+        if (subsMain && subsSide) subsSide.textContent = subsMain.textContent;
+      };
+
+      // Initial sync after a small delay to let profile.js fill the values
+      setTimeout(sync, 400);
+    });
+  </script>
+
+</body>
+</html>
+

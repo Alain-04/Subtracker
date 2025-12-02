@@ -1,0 +1,168 @@
+/* Background same as other pages */
+.account-page {
+    background: url("images/background.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Main container */
+.account-container {
+    padding-top: 40px;
+    max-width: 1100px;
+}
+
+/* Titles */
+.page-title {
+    font-size: 38px;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.page-subtitle {
+    color: #cfcfcf;
+    margin-bottom: 30px;
+}
+
+/* Card */
+.account-card {
+    background: rgba(0, 0, 0, 0.55);
+    padding: 25px;
+    border-radius: 14px;
+    margin-bottom: 25px;
+    backdrop-filter: blur(6px);
+}
+
+/* Section title */
+.section-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Account details layout */
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.detail-box {
+    background: rgba(20, 20, 20, 0.7);
+    padding: 18px;
+    border-radius: 10px;
+}
+
+.detail-box label {
+    font-size: 14px;
+    color: #8aa4c0;
+}
+
+.detail-box p {
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+/* Password form */
+.password-form input {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(40, 40, 40, 0.8);
+    color: white;
+    font-size: 16px;
+}
+
+.btn-primary {
+    background: #0094ff;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-primary:hover {
+    background: #00aaff;
+}
+
+
+/* ===========================
+   ACCOUNT PAGE HEADER
+=========================== */
+
+.account-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 50px;
+  position: relative;
+  z-index: 10;
+}
+
+/* LEFT SIDE: LOGO + TITLE */
+.account-header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.account-header-left:hover {
+  opacity: 0.85;
+  transform: scale(1.02);
+}
+
+.account-logo {
+  height: 48px;     /* smaller and clean */
+  width: auto;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.4));
+}
+
+.account-title {
+  font-size: 26px;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 0.5px;
+  margin-top: 2px;  /* fixes vertical misalignment */
+}
+
+/* RIGHT SIDE BUTTONS */
+.account-header-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* Unified header button styling */
+.btn-header {
+  padding: 10px 24px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  transition: 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-header:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Logout button special color */
+.logout-btn {
+  background: #9b1c1c;
+  border-color: #b23333;
+}
+
+.logout-btn:hover {
+  background: #b72a2a;
+}
+

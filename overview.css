@@ -1,0 +1,111 @@
+
+.overview { padding: 2rem 0 4rem; color: #fff; }
+.welcome { text-align: center; margin: 0 0 1rem; font-weight: 800; }
+
+/* Overview Controls */
+.overview-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.mode-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mode-selector label {
+  color: #cfcfcf;
+  font-weight: 500;
+}
+
+.mode-selector select {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.mode-selector select:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.year-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.year-selector label {
+  color: #cfcfcf;
+  font-weight: 500;
+}
+
+.year-selector input {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1rem;
+  width: 100px;
+  outline: none;
+}
+
+.year-selector input:focus {
+  border-color: rgba(0, 212, 255, 0.5);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.year-apply-btn {
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  background: rgba(0, 71, 171, 0.6);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.year-apply-btn:hover {
+  background: rgba(0, 71, 171, 0.8);
+  border-color: rgba(0, 212, 255, 0.6);
+  transform: translateY(-1px);
+}
+
+.find-wrap { display: grid; place-items: center; margin-bottom: 1.5rem; }
+.find-wrap input { width: min(520px, 92%); padding: 0.8rem 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08); color: #fff; outline: none; }
+.find-results { width: min(520px, 92%); margin-top: 0.5rem; list-style: none; padding: 0; }
+.find-results li { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 0.6rem 0.8rem; margin-bottom: 0.4rem; display: flex; justify-content: space-between; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0 2rem; }
+.stat-circle { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 1.2rem; text-align: center; }
+.stat-value { font-size: 1.6rem; font-weight: 800; margin-bottom: 0.3rem; }
+.stat-label { color: #cfe6ff; font-size: 0.95rem; }
+.lower { display: grid; grid-template-columns: 1.4fr 1fr; gap: 1rem; }
+@media (max-width: 900px){ .lower { grid-template-columns: 1fr; } }
+.category-card, .top3-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 1.2rem; }
+.category-card h2, .top3-card h2 { color: #00d4ff; margin-bottom: .6rem; }
+.donut-wrap { display: grid; grid-template-columns: 220px 1fr; gap: 1rem; align-items: center; }
+@media (max-width: 600px){ .donut-wrap { grid-template-columns: 1fr; } }
+.donut { width: 220px; height: 220px; }
+.donut-ring { fill: transparent; stroke: rgba(255,255,255,0.08); stroke-width: 6; }
+.donut-segment { fill: transparent; stroke-width: 6; transition: opacity .2s ease; }
+.donut-segment:hover { opacity: .85; }
+.legend { list-style: none; padding: 0; margin: 0; font-size: 0.95rem; }
+.legend li { margin: .25rem 0; display: flex; gap: .5rem; align-items: center; }
+.legend .swatch { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.top3-list { list-style: none; padding: 0; margin: 0; }
+.top3-list li { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px dashed rgba(255,255,255,0.15); }
+.top3-list li span { display: inline-block; vertical-align: middle; }
+.cta-row { display: flex; gap: 1rem; justify-content: center; margin-top: 1.2rem; }
+.cta { display: inline-block; padding: 0.75rem 1.5rem; border-radius: 28px; background: linear-gradient(90deg, #001f3f, #0047ab); color: #fff; text-decoration: none; font-weight: 700; }
+.cta.outline { background: transparent; border: 2px solid rgba(255,255,255,0.6); }

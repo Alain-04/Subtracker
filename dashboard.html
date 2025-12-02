@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SubTrack – Dashboard</title>
+  <link rel="icon" type="image/png" href="images/growth_png.png">
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+
+<body>
+  <div class="dashboard-wrapper">
+
+    <!-- HEADER -->
+    <header class="dashboard-header">
+      <div>
+        <h1>Your Subscriptions</h1>
+        <div id="subscription-limit-info" class="subscription-limit-info" style="display: none;">
+          <span class="limit-text">Loading...</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="learnmore.html" id="upgradeBtn" class="upgrade-btn" style="display: none;">Upgrade to Premium</a>
+        <a href="profile.html" class="profile-btn">Profile</a>
+      </div>
+    </header>
+
+    <!-- LIST OF AVAILABLE SUBSCRIPTIONS -->
+    <section class="available">
+      <h2>Add a Subscription</h2>
+
+      <div class="subscription-scroll-wrapper">
+        <button class="scroll-arrow scroll-arrow-left" id="scrollLeft" aria-label="Scroll left">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="subscription-scroll">
+        <article class="subscription-card" data-name="Netflix" data-price="7.99">
+          <img src="images/netflix-logo-png.png" alt="Netflix logo" />
+          <h3>Netflix</h3>
+          <p>$7.99 / month</p>
+          <button class="add-btn" aria-label="Add Netflix subscription">Add</button>
+        </article>
+
+        <article class="subscription-card" data-name="Spotify" data-price="4.99">
+          <img src="images/Spotify_logo_without_text.svg.png" alt="Spotify logo" />
+          <h3>Spotify</h3>
+          <p>$4.99 / month</p>
+          <button class="add-btn" aria-label="Add Spotify subscription">Add</button>
+        </article>
+
+        <article class="subscription-card" data-name="Amazon Prime" data-price="5.99">
+          <img src="images/Amazon_icon.png" alt="Amazon logo" />
+          <h3>Amazon Prime</h3>
+          <p>$5.99 / month</p>
+          <button class="add-btn" aria-label="Add Amazon Prime subscription">Add</button>
+        </article>
+
+        <article class="subscription-card" data-name="Disney+" data-price="8.99">
+          <img src="images/Disney_plus_icon.png" alt="Disney+ logo" />
+          <h3>Disney+</h3>
+          <p>$8.99 / month</p>
+          <button class="add-btn" aria-label="Add Disney+ subscription">Add</button>
+        </article>
+
+        <article class="subscription-card" data-name="Paramount+" data-price="9.99">
+          <img src="images/Paramount_Plus.svg.png" alt="Paramount+ logo" />
+          <h3>Paramount+</h3>
+          <p>$9.99 / month</p>
+          <button class="add-btn" aria-label="Add Paramount+ subscription">Add</button>
+        </article>
+
+        <article class="subscription-card" data-name="Playstation+" data-price="10.99">
+          <img src="images/PlayStation-Plus-simple-Logo-Vector.svg-.png" alt="Playstation+ logo" />
+          <h3>Playstation+</h3>
+          <p>$10.99 / month</p>
+          <button class="add-btn" aria-label="Add Playstation+ subscription">Add</button>
+        </article>
+
+        <article class="subscription-card" data-name="Xbox Live" data-price="11.99">
+          <img src="images/Xbox_one_logo.svg.png" alt="Xbox Live logo" />
+          <h3>Xbox Live</h3>
+          <p>$11.99 / month</p>
+          <button class="add-btn" aria-label="Add Xbox Live subscription">Add</button>
+        </article>
+
+        </div>
+        <button class="scroll-arrow scroll-arrow-right" id="scrollRight" aria-label="Scroll right">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- USER CURRENT SUBSCRIPTIONS -->
+    <section class="user-subs">
+      <h2>Your Active Subscriptions</h2>
+
+      <div class="controls">
+        <button id="addCustomBtn" class="custom-btn" aria-haspopup="dialog" aria-controls="customModal" aria-label="Add custom subscription">➕ Add Custom Sub</button>
+        <button id="saveAndViewBtn" class="custom-btn outline" aria-label="Save and view subscriptions">Save</button>
+      </div>
+
+      <div id="active-list" class="active-list"></div>
+
+      <div class="total-box">
+        <strong>Total Monthly Spend:</strong>
+        <span id="totalSpend">$0.00</span>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Custom Subscription Modal -->
+  <div id="customModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="customModalTitle">
+    <div class="modal-content">
+      <h3 id="customModalTitle">Add Custom Subscription</h3>
+      <form id="customForm">
+        <label for="customName">Name</label>
+        <input id="customName" type="text" placeholder="e.g., Adobe Creative Cloud" required>
+
+        <label for="customPrice">Amount</label>
+        <input id="customPrice" type="number" step="0.01" min="0" placeholder="e.g., 9.99" required>
+
+        <label for="customBillingCycle">Billing Cycle</label>
+        <select id="customBillingCycle" required>
+          <option value="monthly">Monthly</option>
+          <option value="yearly">Yearly</option>
+        </select>
+
+        <label for="customCategory">Category</label>
+        <div class="category-input-group">
+          <select id="customCategorySelect">
+            <option value="">Select a category...</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Education">Education</option>
+            <option value="Work">Work</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Productivity">Productivity</option>
+            <option value="Finance">Finance</option>
+            <option value="Health">Health</option>
+            <option value="Other">Other</option>
+            <option value="custom">Custom (type below)</option>
+          </select>
+          <input id="customCategory" type="text" placeholder="Or type custom category" style="display: none;">
+        </div>
+
+        <label for="customStartDate">Start Date</label>
+        <input id="customStartDate" type="date" required>
+
+        <label for="customEndDate">End Date</label>
+        <input id="customEndDate" type="date">
+
+        <div class="modal-actions">
+          <button type="submit" class="custom-btn small">Add</button>
+          <button type="button" id="cancelCustom" class="custom-btn outline small">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Limit Exceeded Modal -->
+  <div id="limitExceededModal" class="limit-modal hidden">
+    <div class="limit-modal-content">
+      <div class="limit-modal-icon">⚠️</div>
+      <h2>Subscription Limit Exceeded</h2>
+      <p id="limitExceededMessage">
+        You have exceeded your subscription limit. Please upgrade to a premium plan to continue adding subscriptions.
+      </p>
+      <div class="limit-modal-actions">
+        <a href="learnmore.html" class="limit-modal-btn upgrade">Upgrade to Premium</a>
+        <button id="limitModalOkBtn" class="limit-modal-btn ok">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+  <script src="js/navigation.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SubTrack – Payment Info</title>
+  <link rel="icon" type="image/png" href="images/growth_png.png">
+  <link rel="stylesheet" href="payment.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <button class="back-btn" onclick="history.back()">
+    ← Back
+  </button>
+
+  <div class="payment-wrapper">
+    <div class="payment-container">
+
+      <header>
+        <h1>Payment Information</h1>
+        <p>Manage your card and billing details securely.</p>
+      </header>
+
+      <div class="payment-box">
+        <section class="card-info">
+          <h2>Card Information</h2>
+          <p>Indicate details of the card from which payments are made.</p>
+
+          <div class="card-box">
+            <div class="input-field">
+              <label for="cardNumber">Card Number</label>
+              <input id="cardNumber" type="text" placeholder="Enter card number" maxlength="19" aria-label="Card number">
+            </div>
+
+            <div class="double-field">
+              <div>
+                <label for="cardExpiry">Month / Year</label>
+                <input id="cardExpiry" type="text" placeholder="MM / YY" maxlength="7" aria-label="Card expiry date">
+              </div>
+              <div>
+                <label for="cardCVV">CVV</label>
+                <input id="cardCVV" type="password" placeholder="CVV" maxlength="4" aria-label="Card CVV">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="personal-info">
+          <h2>Personal Information</h2>
+
+          <div class="info-grid">
+            <div class="input-field">
+              <label for="firstName">First Name</label>
+              <input id="firstName" type="text" placeholder="Enter first name" aria-label="First name">
+            </div>
+
+            <div class="input-field">
+              <label for="lastName">Last Name</label>
+              <input id="lastName" type="text" placeholder="Enter last name" aria-label="Last name">
+            </div>
+
+            <div class="input-field">
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="Email" readonly aria-label="Email address">
+            </div>
+
+            <div class="input-field">
+              <label for="phoneNumber">Phone Number</label>
+              <input id="phoneNumber" type="tel" placeholder="Enter phone number" aria-label="Phone number">
+            </div>
+
+            <div class="input-field">
+              <label for="country">Country</label>
+              <input id="country" type="text" placeholder="Enter country" aria-label="Country">
+            </div>
+
+            <div class="input-field">
+              <label for="city">City</label>
+              <input id="city" type="text" placeholder="Enter city" aria-label="City">
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="button-area">
+        <button type="button" class="save-btn" aria-label="Save payment information">Save Changes</button>
+      </div>
+    </div>
+  </div>
+  <script src="payment.js"></script>
+</body>
+
+</html>

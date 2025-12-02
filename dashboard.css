@@ -1,0 +1,522 @@
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: url("images/background.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.dashboard-wrapper {
+  width: 90%;
+  margin: auto;
+  padding: 2rem 0;
+  color: white;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.upgrade-btn {
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+.upgrade-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+  background: linear-gradient(135deg, #fbbf24, #dc2626);
+}
+
+.dashboard-header > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.subscription-limit-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.limit-text {
+  font-weight: 500;
+}
+
+.plan-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.plan-badge.plan-free {
+  background: rgba(148, 163, 184, 0.3);
+  color: #cbd5e1;
+}
+
+.plan-badge.plan-standard {
+  background: rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+}
+
+.plan-badge.plan-team {
+  background: rgba(37, 99, 235, 0.3);
+  color: #60a5fa;
+}
+
+.limit-warning {
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+.subscription-limit-info.limit-reached {
+  color: #fca5a5;
+}
+
+.subscription-limit-info.limit-reached .limit-text {
+  color: #ef4444;
+  font-weight: 700;
+}
+
+/* Limit Exceeded Modal */
+.limit-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  backdrop-filter: blur(4px);
+}
+
+.limit-modal.hidden {
+  display: none;
+}
+
+.limit-modal-content {
+  background: linear-gradient(135deg, rgba(30, 30, 50, 0.95), rgba(20, 20, 40, 0.95));
+  border: 2px solid rgba(239, 68, 68, 0.5);
+  border-radius: 20px;
+  padding: 2.5rem;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(239, 68, 68, 0.3);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.limit-modal-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.limit-modal-content h2 {
+  color: #fca5a5;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.limit-modal-content p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.limit-modal-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.limit-modal-btn {
+  padding: 0.9rem 2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+}
+
+.limit-modal-btn.upgrade {
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  color: white;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+}
+
+.limit-modal-btn.upgrade:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.5);
+  background: linear-gradient(135deg, #fbbf24, #dc2626);
+}
+
+.limit-modal-btn.ok {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.limit-modal-btn.ok:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.profile-btn {
+  background: white;
+  color: #001f3f;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.subscription-grid {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.subscription-card {
+  background: rgba(0,0,0,0.5);
+  padding: 1rem;
+  width: 200px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.add-btn, .remove-btn {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+  background: #0047ab;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.active-list {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+  gap: 1rem;
+}
+
+.active-item {
+  background: rgba(255,255,255,0.1);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.total-box {
+  margin-top: 2rem;
+  font-size: 1.3rem;
+}
+
+/* === Controls Row & Buttons === */
+.controls {
+  margin: 0.5rem 0 1rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+.custom-btn {
+  background: linear-gradient(90deg, #001f3f, #0047ab);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 24px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.custom-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 16px rgba(0, 212, 255, 0.45);
+}
+.custom-btn.outline {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  color: #fff;
+}
+.custom-btn.small {
+  padding: 0.45rem 0.9rem;
+  border-radius: 18px;
+  font-weight: 600;
+}
+
+/* === Modal === */
+.modal.hidden { display: none; }
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.55);
+  z-index: 999;
+}
+.modal-content {
+  width: 92%;
+  max-width: 440px;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+}
+.modal-content h3 {
+  margin: 0 0 1rem;
+  color: #00d4ff;
+}
+.modal-content label {
+  display: block;
+  font-weight: 600;
+  margin: 0.4rem 0 0.25rem;
+}
+.modal-content input {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  outline: none;
+}
+.modal-actions {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.category-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.category-input-group select,
+.category-input-group input {
+  width: 100%;
+}
+
+#customCategory {
+  margin-top: 0.5rem;
+}
+
+#customBillingCycle,
+#customCategorySelect {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+}
+
+#customBillingCycle option,
+#customCategorySelect option {
+  background: #1f2937;
+  color: #fff;
+}
+
+#customCategory {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  font-size: 1rem;
+}
+
+/* Remove button in active items */
+.active-item .remove-btn {
+  margin-top: 0.6rem;
+  padding: 0.45rem 0.75rem;
+  background: rgba(255, 80, 80, 0.9);
+  border: none;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.active-item .remove-btn:hover { filter: brightness(1.1); }
+
+
+/* Fix Profile button theme */
+.profile-btn {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.profile-btn:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+
+/* Horizontal scroll wrapper */
+.subscription-scroll-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    position: relative;
+}
+
+/* Hide scrollbar (Chrome, Safari, Edge) */
+.subscription-scroll-wrapper::-webkit-scrollbar {
+    height: 0px;
+}
+
+/* Horizontal row of cards */
+.subscription-scroll {
+    display: flex;
+    gap: 2rem;
+    padding: 10px 5px;
+    width: max-content;
+}
+
+/* Make sure each card stays same size */
+.subscription-card {
+    min-width: 250px;     /* Your current width */
+    max-width: 250px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 280px;
+    height: 280px;
+}
+
+.subscription-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+}
+
+.subscription-card h3 {
+    margin: 0.5rem 0;
+    flex-shrink: 0;
+}
+
+.subscription-card p {
+    margin: 0.5rem 0;
+    flex-shrink: 0;
+}
+
+.subscription-card .add-btn {
+    margin-top: auto;
+    flex-shrink: 0;
+}
+
+/* Scroll arrows - fixed position on screen */
+.scroll-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+}
+
+.scroll-arrow:hover {
+    background: rgba(0, 71, 171, 0.9);
+    border-color: rgba(0, 212, 255, 0.6);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+}
+
+.scroll-arrow:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.scroll-arrow-left {
+    left: 20px;
+}
+
+.scroll-arrow-right {
+    right: 20px;
+}
+
+.scroll-arrow svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Hide arrows on mobile */
+@media (max-width: 768px) {
+    .scroll-arrow {
+        display: none;
+    }
+}

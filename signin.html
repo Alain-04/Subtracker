@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SubTrack – Sign In</title>
+  <link rel="icon" type="image/png" href="images/growth_png.png">
+  <link rel="stylesheet" href="signin.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  
+
+  <div style="text-align:center;margin-top:20px;"></div><div class="background">
+    <div class="login-box">
+      
+      <!-- LEFT PANEL -->
+      <div class="left-panel">
+        <div class="welcome-text">
+          <div class="brand">
+            <a href="website.html"><img src="images/growth_png.png" alt="SubTrack Logo" class="brand-logo" /></a>
+            <span class="brand-name"><strong>Sub</strong>Track</span>
+          </div>
+
+          <h1>Welcome Back!</h1>
+          <p>Log in to continue tracking your Subscriptions across all platforms — all in one place.</p>
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL -->
+      <div class="right-panel">
+        <div class="signin-form">
+          <h2>Sign In</h2>
+
+          <form>
+            <input type="text" placeholder="Username" required />
+            <input type="password" placeholder="Password" required />
+            <button type="submit" class="signin-btn">Sign In</button>
+    
+     
+          
+      
+    
+
+
+            <div class="signup-link"><p>Don't have an account? <a href="login2.html" class="signup-btn">Sign Up</a></p></div>
+          </form>
+          
+          <!-- Admin Login Button -->
+          <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+            <button type="button" class="admin-login-btn" id="adminLoginBtn" style="width: 100%; padding: 0.75rem; background: rgba(239, 68, 68, 0.2); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.4); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s;">
+              <i class="fas fa-shield-alt"></i> Sign in as an Admin
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
+
+<script>
+// Admin login button handler
+document.addEventListener('DOMContentLoaded', () => {
+  const adminBtn = document.getElementById('adminLoginBtn');
+  if (adminBtn) {
+    adminBtn.addEventListener('click', () => {
+      // Get the form inputs
+      const form = document.querySelector('form');
+      const usernameInput = form.querySelector('input[type="text"]');
+      const passwordInput = form.querySelector('input[type="password"]');
+      
+      if (!usernameInput.value || !passwordInput.value) {
+        alert('Please enter your admin username and password');
+        return;
+      }
+      
+      // Show loading state
+      adminBtn.disabled = true;
+      adminBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Signing in...';
+      
+      // Trigger the form submission (auth.js will handle it)
+      form.dispatchEvent(new Event('submit'));
+    });
+  }
+});
+</script>
+<script src="js/auth.js"></script>

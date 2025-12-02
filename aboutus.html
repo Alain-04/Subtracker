@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SubTrack – About Us</title>
+  <link rel="icon" type="image/png" href="images/growth_png.png">
+  <link rel="stylesheet" href="aboutus.css" />
+  <link rel="icon" type="image/png" href="images/growth_png.png" />
+</head>
+
+<body class="dark-theme">
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container">
+      <a class="site-name" href="website.html">
+        <img src="images/growth_png.png" alt="SubTrack Logo" class="site-logo" />
+        <span>SubTrack</span>
+      </a>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="website.html" class="nav-btn">Home</a></li>
+          <li><a href="learnmore.html" class="nav-btn">Plans</a></li>
+          <li><a href="profile.html" class="nav-btn">Profile</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN SECTION -->
+  <main class="about-container">
+    <section class="intro">
+      <h1>About SubTrack</h1>
+      <p class="tagline">
+        Simplifying the way you manage subscriptions — so you stay organized, save money, and stay in control.
+      </p>
+    </section>
+
+    <section class="mission-vision">
+      <div class="mission-box">
+        <h2>Our Mission</h2>
+        <p>
+          At <strong>SubTrack</strong>, our mission is to empower individuals to take control of their recurring
+          expenses. Subscription management should be clear, effortless, and intelligent — not overwhelming.
+        </p>
+      </div>
+
+      <div class="vision-box">
+        <h2>Our Vision</h2>
+        <p>
+          We envision a world where every user can track, analyze, and optimize their digital life — all from one
+          intuitive dashboard. SubTrack helps eliminate wasted renewals and puts you in charge of your spending.
+        </p>
+      </div>
+    </section>
+
+    <section class="values">
+      <h2>Our Core Values</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <i class="fas fa-lock"></i>
+          <h3>Transparency</h3>
+          <p>Every feature is built to be clear and user-first — no confusion, no hidden terms.</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-user-shield"></i>
+          <h3>Privacy</h3>
+          <p>Your data stays yours. We design SubTrack with security and trust at its core.</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-lightbulb"></i>
+          <h3>Innovation</h3>
+          <p>We constantly improve to deliver smarter insights and a smoother experience.</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-heart"></i>
+          <h3>User Focus</h3>
+          <p>We build for people — listening, adapting, and improving with every release.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="team">
+      <h2>Meet the Team</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="images/profile_black.png" alt="Yves Chalhoub">
+          <h3>Yves Chalhoub</h3>
+          <p>Founder & Lead Developer</p>
+        </div>
+        <div class="team-member">
+          <img src="images/profile_black.png" alt="Alain Koukou">
+          <h3>Alain Koukou</h3>
+          <p>UI/UX Designer & Co-Developer</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>SubTrack</h3>
+        <p>Track and manage all your subscriptions in one place.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="learnmore.html">Plans</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="signin.html">Sign In</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:support@subtrack.com">support@subtrack.com</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <small>© <span id="year"></span> SubTrack. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,85 @@
+/* ===== GLOBAL ===== */
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: url("images/background.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #eee;
+  line-height: 1.7;
+}
+
+/* ===== HEADER ===== */
+.site-header {
+  padding: 1.5rem 0;
+  text-align: center;
+}
+.site-logo {
+  height: 45px;
+  vertical-align: middle;
+}
+.site-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+}
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.nav-btn {
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.nav-btn:hover {
+  background: linear-gradient(90deg, #001f3f, #0047ab);
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+}
+
+/* ===== CONTENT ===== */
+.terms-container {
+  max-width: 900px;
+  margin: 4rem auto;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 3rem;
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+.terms-container h1 {
+  color: #00d4ff;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.terms-container h2 {
+  color: #fff;
+  margin-top: 1.8rem;
+}
+.terms-container p {
+  color: #ccc;
+  margin-top: 0.6rem;
+}
+.terms-container a {
+  color: #00d4ff;
+  text-decoration: none;
+}
+.terms-container a:hover {
+  text-decoration: underline;
+}
+
+/* ===== FOOTER ===== */
+.main-footer {
+  background: rgba(0, 0, 30, 0.9);
+  text-align: center;
+  padding: 1.5rem 0;
+  color: #777;
+  font-size: 0.9rem;
+}
